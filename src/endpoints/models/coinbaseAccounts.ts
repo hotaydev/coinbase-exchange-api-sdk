@@ -1,4 +1,4 @@
-export interface CoinbaseWallets {
+export interface ICoinbaseWallets {
   id: string;
   name: string;
   balance: string;
@@ -13,13 +13,13 @@ export interface CoinbaseWallets {
   available_on_consumer?: boolean;
 }
 
-export interface GenerateCryptoAddressRequest {
+export interface IGenerateCryptoAddressRequest {
   account_id: string;
   profile_id: string;
   network: string;
 }
 
-export interface GenerateCryptoAddressResponse {
+export interface IGenerateCryptoAddressResponse {
   id: string;
   address: string;
   address_info: {

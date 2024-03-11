@@ -1,4 +1,4 @@
-export interface SignedPrices {
+export interface ISignedPrices {
   timestamp: string;
   signatures: string[];
   prices: object;

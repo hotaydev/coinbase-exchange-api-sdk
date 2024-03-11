@@ -1,6 +1,29 @@
-enum VaspId {null, "Coinbase", "Anchorage", "Balance", "bitFlyer", "BitGo", "Bittrex", "BlockFi", "Circle", "Coinhako", "Fidelity", "Gemini", "Huobi", "Kraken", "Paxos", "PayPal", "Robinhood", "Shakepay", "Standard Custody", "Tradestation", "Zero Hash", "Bitstamp"}
+enum IVaspId {
+  null,
+  "Coinbase",
+  "Anchorage",
+  "Balance",
+  "bitFlyer",
+  "BitGo",
+  "Bittrex",
+  "BlockFi",
+  "Circle",
+  "Coinhako",
+  "Fidelity",
+  "Gemini",
+  "Huobi",
+  "Kraken",
+  "Paxos",
+  "PayPal",
+  "Robinhood",
+  "Shakepay",
+  "Standard Custody",
+  "Tradestation",
+  "Zero Hash",
+  "Bitstamp",
+}
 
-export interface AddressBook {
+export interface IAddressBook {
   id: string;
   address: string;
   destination_tag?: string;
@@ -9,10 +32,10 @@ export interface AddressBook {
   address_book_added_at: string;
   last_used?: string;
   is_verified_self_hosted_wallet?: boolean;
-  vasp_id?: VaspId;
+  vasp_id?: IVaspId;
 }
 
-export interface AddAddressBookRequest {
+export interface IAddAddressBookRequest {
   addresses: {
     currency: string;
     to: {
@@ -21,11 +44,11 @@ export interface AddAddressBookRequest {
     };
     label: string;
     is_verified_self_hosted_wallet?: boolean;
-    vasp_id?: VaspId;
+    vasp_id?: IVaspId;
   }[];
 }
 
-export interface AddAddressBookResponse {
+export interface IAddAddressBookResponse {
   id: string;
   address: string;
   address_info: {
@@ -42,5 +65,5 @@ export interface AddAddressBookResponse {
   last_used: string;
   address_book_entry_pending_until: string;
   is_verified_self_hosted_wallet: boolean;
-  vasp_id: VaspId;
+  vasp_id: IVaspId;
 }

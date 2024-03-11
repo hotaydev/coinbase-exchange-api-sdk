@@ -1,4 +1,4 @@
-export interface _Account {
+export interface IAccount {
   id: string;
   currency: string;
   balance: string;
@@ -10,29 +10,51 @@ export interface _Account {
   display_name?: string;
 }
 
-export interface AccountHolds {
+export interface IAccountHolds {
   id: string;
   created_at: string;
   updated_at?: string;
-  type: "order" | "transfer" | "funding" | "profile_transfer" | "otc_order" | "launch_sell" | "launch_buy" | "engine_credit_operation";
+  type:
+    | "order"
+    | "transfer"
+    | "funding"
+    | "profile_transfer"
+    | "otc_order"
+    | "launch_sell"
+    | "launch_buy"
+    | "engine_credit_operation";
   ref: string;
   amount?: string;
 }
 
-export interface AccountLedger {
+export interface IAccountLedger {
   id: string;
   amount: string;
   created_at: string;
   balance: string;
-  type: "transfer" | "match" | "fee" | "conversion" | "margin_interest" | "rebate" | "otc_fee" | "otc_match" | "tax_credit" | "rfq_match" | "rfq_fee" | "match_conversion" | "stake_wrap" | "conversion_fee";
+  type:
+    | "transfer"
+    | "match"
+    | "fee"
+    | "conversion"
+    | "margin_interest"
+    | "rebate"
+    | "otc_fee"
+    | "otc_match"
+    | "tax_credit"
+    | "rfq_match"
+    | "rfq_fee"
+    | "match_conversion"
+    | "stake_wrap"
+    | "conversion_fee";
   details?: {
-    to? : string;
+    to?: string;
     from?: string;
     profile_transfer_id?: string;
   };
 }
 
-export interface AccountTransfers {
+export interface IAccountTransfers {
   id: string;
   type: "deposit" | "withdraw" | "internal_deposit" | "internal_withdraw";
   created_at: string;

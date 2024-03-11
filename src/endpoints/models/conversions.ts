@@ -1,4 +1,4 @@
-export interface ConvertCurrencyRequest {
+export interface IConvertCurrencyRequest {
   profile_id: string;
   from: string;
   to: string;
@@ -6,7 +6,7 @@ export interface ConvertCurrencyRequest {
   nonce: string;
 }
 
-export interface ConvertCurrencyResponse {
+export interface IConvertCurrencyResponse {
   id: string;
   amount: string;
   from_account_id: string;
@@ -16,7 +16,7 @@ export interface ConvertCurrencyResponse {
   fee_amount: string;
 }
 
-export interface ConversionRate {
+export interface IConversionRate {
   from_currency: string;
   to_currency: string;
   min_fee_rate: string;
@@ -28,7 +28,7 @@ export interface ConversionRate {
   }[];
 }
 
-export interface GetConversion {
+export interface IGetConversion {
   id: string;
   amount: string;
   from_account_id: string;
