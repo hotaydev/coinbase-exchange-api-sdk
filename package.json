@@ -6,15 +6,23 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint --fix --ext .ts ./src",
+    "prettier": "prettier . --write",
+    "format": "npm run prettier && npm run lint",
+    "postinstall": "git init && git config --local core.hooksPath .hooks/"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.25",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "~5.3.3"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"

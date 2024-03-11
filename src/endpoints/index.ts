@@ -1,5 +1,3 @@
 import AccountEndpoint from "./account";
 
-export {
-  AccountEndpoint
-};
+export { AccountEndpoint };

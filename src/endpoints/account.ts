@@ -1,7 +1,9 @@
-export default class AccountEndpoint {
-  private instance: any;
+import CoinbaseTradeRequest from "../request";
 
-  constructor(instance: any) {
+export default class AccountEndpoint {
+  private instance: CoinbaseTradeRequest;
+
+  constructor(instance: CoinbaseTradeRequest) {
     this.instance = instance;
   }
 }
