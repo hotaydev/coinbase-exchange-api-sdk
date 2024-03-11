@@ -1,5 +1,5 @@
+import "isomorphic-fetch";
 import { createHmac } from "node:crypto";
-import fetch from "node-fetch";
 
 export default class CoinbaseTradeRequest {
   private api: string = "";

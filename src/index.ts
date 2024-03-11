@@ -31,7 +31,7 @@ export default class CoinbaseSDK {
     key: string;
     passphrase: string;
     secret: string;
-    environment: "env" | "prod";
+    environment?: "env" | "prod";
   }) {
     this.instance.initialize({ key, passphrase, secret, environment });
   }
