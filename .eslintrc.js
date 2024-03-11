@@ -31,7 +31,7 @@ module.exports = {
     eqeqeq: "error",
     "max-lines": [
       "error",
-      { max: 80, skipBlankLines: true, skipComments: true },
+      { max: 100, skipBlankLines: true, skipComments: true },
     ],
     "max-nested-callbacks": ["error", 3],
     "no-duplicate-imports": ["error", { includeExports: true }],
