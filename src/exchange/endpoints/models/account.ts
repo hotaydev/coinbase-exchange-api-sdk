@@ -1,3 +1,5 @@
+import { IPagination } from "./_general";
+
 export interface IAccount {
   id: string;
   currency: string;
@@ -54,9 +56,15 @@ export interface IAccountLedger {
   };
 }
 
+export interface IAccountLedgerQueryParams extends IPagination {
+  start_date?: string;
+  end_date?: string;
+  profile_id?: string;
+}
+
 export interface IAccountTransfers {
   id: string;
-  type: "deposit" | "withdraw" | "internal_deposit" | "internal_withdraw";
+  type: ITransferTypes;
   created_at: string;
   completed_at: string;
   canceled_at?: string;
@@ -69,4 +77,15 @@ export interface IAccountTransfers {
   };
   user_nonce?: number;
   currency: string;
+}
+
+export interface IAccountTransfersQueryParams extends IPagination {
+  type?: ITransferTypes;
+}
+
+enum ITransferTypes {
+  "deposit",
+  "withdraw",
+  "internal_deposit",
+  "internal_withdraw"
 }

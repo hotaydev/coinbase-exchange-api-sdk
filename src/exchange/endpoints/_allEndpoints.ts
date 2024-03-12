@@ -9,7 +9,7 @@ export enum Endpoints {
   getAccounts = "/accounts",
   getAccountById = "/accounts/:id",
   getAccountHolds = "/accounts/:id/holds",
-  getAccountLedger = "/accounts/:id/ledger",
+  getAccountLedgers = "/accounts/:id/ledger",
   getAccountTransfers = "/accounts/:id/transfers",
 
   getAddressBook = "/address-book",

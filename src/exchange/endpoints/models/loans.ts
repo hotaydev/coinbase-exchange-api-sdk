@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export interface ILoan {
   id: string;
   currency: string;
@@ -28,6 +29,11 @@ export interface INewLoanPreview {
   after: _ISingleLoanContent;
 }
 
+export interface INewLoanPreviewQueryParams {
+  currency: string;
+  native_amount: string;
+}
+
 export interface INewLoanRequest {
   loan_id: string;
   currency: string;
@@ -55,6 +61,12 @@ export interface IRepayLoanPrincipalRequest {
   loan_id: string;
   idem: string;
   from_profile_id: string;
+  currency: string;
+  native_amount: string;
+}
+
+export interface IRepayLoanPrincipalQueryParams {
+  loan_id: string;
   currency: string;
   native_amount: string;
 }

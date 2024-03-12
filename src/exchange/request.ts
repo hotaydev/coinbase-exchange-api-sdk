@@ -1,7 +1,7 @@
 import "isomorphic-fetch";
 import { createHmac } from "node:crypto";
 
-export default class CoinbaseTradeRequest {
+export default class CoinbaseExchangeApiRequest {
   private api: string = "";
   private cb_secret: string = "";
   private cb_passphrase: string = "";
@@ -19,9 +19,10 @@ export default class CoinbaseTradeRequest {
     timestamp: number,
     method: string,
     path: string,
-    body: object,
+    body?: object,
   ): string {
-    const message = timestamp + method + path + body;
+    const firstPartOfTheMessage = timestamp + method + path;
+    const message = body ? firstPartOfTheMessage + JSON.stringify(body) : firstPartOfTheMessage;
     const key = Buffer.from(this.cb_secret, "base64");
     const hmac = createHmac("sha256", key);
     return hmac.update(message).digest("base64");
@@ -49,11 +50,12 @@ export default class CoinbaseTradeRequest {
     }
   }
 
-  public async request(
-    method: string,
-    path: string,
-    body: object,
-  ): Promise<unknown> {
+  public async request({
+    method = "GET",
+    path,
+    body,
+    query,
+  }: {method?: "GET" | "POST" | "DELETE" | "PUT", path: string, body?: object, query?: object}): Promise<unknown> {
     const timestamp = this.getTimestamp();
     const sign = this.getSign(
       timestamp,
@@ -62,25 +64,31 @@ export default class CoinbaseTradeRequest {
       body,
     );
 
-    try {
-      const response = await fetch(this.api + this.startWithSlash(path), {
-        method: method,
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "CB-ACCESS-KEY": this.cb_key,
-          "CB-ACCESS-SIGN": sign,
-          "CB-ACCESS-TIMESTAMP": timestamp.toString(),
-          "CB-ACCESS-PASSPHRASE": this.cb_passphrase,
-        },
-      });
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      // TODO: handle this error
-      console.log(error);
-      return error;
+    const response = await fetch(this.api + this.startWithSlash(path) + this.objectToQueryString(query), {
+      method: method,
+      body: body ? JSON.stringify(body) : null,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "CB-ACCESS-KEY": this.cb_key,
+        "CB-ACCESS-SIGN": sign,
+        "CB-ACCESS-TIMESTAMP": timestamp.toString(),
+        "CB-ACCESS-PASSPHRASE": this.cb_passphrase,
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private objectToQueryString(data: any): string {
+    if (data) {
+      return "?" + Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join("&");
     }
+
+    return "";
   }
 }

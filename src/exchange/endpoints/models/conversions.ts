@@ -37,3 +37,7 @@ export interface IGetConversion {
   to: string;
   fee_amount: string;
 }
+
+export interface IGetConversionQueryParams {
+  profile_id: string;
+}

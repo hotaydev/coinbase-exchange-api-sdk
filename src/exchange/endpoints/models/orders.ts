@@ -1,3 +1,5 @@
+import { IPagination } from "./_general";
+
 export interface IFill {
   trade_id: number;
   product_id: string;
@@ -16,7 +18,15 @@ export interface IFill {
   funding_currency: string;
 }
 
-export interface IOrders {
+export interface IGetAllFillsQueryParams extends IPagination {
+  order_id?: string;
+  product_id?: string;
+  market_type?: string;
+  start_date?: string;
+  end_date?: string;
+}
+
+export interface IOrder {
   id: string;
   price: string;
   size: string;
@@ -68,4 +78,23 @@ export interface ICreateNewOrderRequest {
   max_floor: string;
 }
 
-export interface ICreateNewOrderResponse extends IOrders {}
+export interface ICreateNewOrderResponse extends IOrder {}
+
+export interface IGetAllOrdersQueryParams extends IPagination, ICancelSingleOrderQueryParams {
+  profile_id?: string;
+  product_id?: string;
+  sortedBy?: "created_at" | "price" | "size" | "order_id" | "side" | "type";
+  sorting?: "desc" | "asc";
+  start_date?: string;
+  end_date?: string;
+  status?: string[];
+}
+
+export interface ICancelAllOrdersQueryParams {
+  profile_id?: string;
+  product_id?: string;
+}
+
+export interface ICancelSingleOrderQueryParams {
+  market_type?: string;
+}

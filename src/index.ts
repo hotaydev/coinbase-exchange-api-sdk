@@ -15,12 +15,14 @@ import {
   TravelRulesEndpoint,
   UsersEndpoint,
   WrappedAssetsEndpoint,
-} from "./endpoints";
-import CoinbaseTradeRequest from "./request";
+} from "./exchange/endpoints";
+import CoinbaseExchangeApiRequest from "./exchange/request";
 
-/// Use it like `const cb = new CoinbaseSDK({ key: "", secret: "", ... })`
-export default class CoinbaseSDK {
-  private instance = new CoinbaseTradeRequest();
+/**
+ * Use it like `const cb = new CoinbaseExchangeApi({ key: "", secret: "", ... })`
+ */
+export class CoinbaseExchangeApi {
+  private instance = new CoinbaseExchangeApiRequest();
 
   constructor({
     key,
@@ -98,5 +100,14 @@ export default class CoinbaseSDK {
 
   get wrappedAssets(): WrappedAssetsEndpoint {
     return new WrappedAssetsEndpoint(this.instance);
+  }
+}
+
+/**
+ * Use it like `const cb = new CoinbaseAdvancedApi({ key: "", secret: "", ... })`
+ */
+export class CoinbaseAdvancedApi {
+  constructor() {
+    throw Error("Not implemented yet");
   }
 }
