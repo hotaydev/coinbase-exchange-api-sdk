@@ -7,11 +7,13 @@ export interface IProfile {
   created_at: string;
 }
 
+export interface IProfileQueryParams {
+  active: boolean;
+}
+
 export interface IProfileCreateRequest {
   name: string;
 }
-
-export interface IProfileCreateResponse extends IProfile {}
 
 export interface IProfileTransfer {
   from: string;

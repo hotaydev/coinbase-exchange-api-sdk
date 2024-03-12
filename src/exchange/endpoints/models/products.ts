@@ -19,6 +19,10 @@ export interface ISingleProduct {
   high_bid_limit_percentage: string;
 }
 
+export interface ISingleProductQueryParams {
+  type?: string;
+}
+
 export interface IProductBook {
   bids: object | Array<string | number>;
   asks: object | Array<string | number>;
@@ -38,6 +42,10 @@ export interface IProductBook {
   time: string;
 }
 
+export interface IProductBookQueryParams {
+  level?: number;
+}
+
 // Lacks documentation of this response
 export interface IProductCandles {
   time: string;
@@ -46,6 +54,12 @@ export interface IProductCandles {
   open: string;
   close: string;
   volume: string;
+}
+
+export interface IProductCandlesQueryParams {
+  granularity?: number;
+  start?: number;
+  end?: number;
 }
 
 export interface IProductStats {

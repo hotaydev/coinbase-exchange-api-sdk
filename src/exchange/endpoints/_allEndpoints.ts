@@ -72,7 +72,7 @@ export enum Endpoints {
   deleteProfile = "/profiles/:id/deactivate",
 
   getReports = "/reports",
-  createReports = "/reports",
+  createReport = "/reports",
   getReportById = "/reports/:id",
 
   getTravelRules = "/travel-rules",

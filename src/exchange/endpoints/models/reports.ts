@@ -1,3 +1,5 @@
+import { IPagination } from "./_general";
+
 export interface IReport {
   id: string;
   type: string;
@@ -42,6 +44,12 @@ export interface IReport {
       has_restricted_assets: boolean;
     };
   };
+}
+
+export interface IReportQueryParams extends IPagination {
+  profile_id: string;
+  ignore_expired: boolean;
+  type: "account" | "balance" | "fills" | "otc-fills" | "rfq-fills" | "tax-invoice" | "1099k-transaction-history";
 }
 
 export interface IReportCreate {
