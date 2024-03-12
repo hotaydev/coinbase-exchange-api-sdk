@@ -1,3 +1,5 @@
+import { IPagination } from "./_general";
+
 export interface IWrappedAsset {
   id: string;
   circulating_supply: string;
@@ -23,6 +25,12 @@ export interface IWrappedAssetStakeWrap {
   created_at: string;
   completed_at: string;
   canceled_at: string;
+}
+
+export interface IWrappedAssetStakeWrapQueryParams extends IPagination {
+  from: string;
+  to: string;
+  status: string;
 }
 
 export interface IWrappedAssetStakeWrapRequest {

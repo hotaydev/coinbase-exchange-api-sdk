@@ -1,3 +1,5 @@
+import { IPagination } from "./_general";
+
 /* eslint-disable max-lines */
 export interface IDepositFromCoinbaseAccount extends _IDepositRequest {
   coinbase_account_id: string;
@@ -114,6 +116,14 @@ export interface ITransfer {
   currency: string;
 }
 
+export interface ITransferQueryParams extends IPagination {
+  profile_id: string;
+  type: "deposit" | "withdraw" | "internal_deposit" | "internal_withdraw";
+  currency_type: "crypto" | "fiat";
+  transfer_reason: "usdc_reward";
+  currency: string;
+}
+
 export interface ITravelInformationForTransfer {
   transfer_id: string;
   originator_name: string;
@@ -180,7 +190,7 @@ export interface IWithdrawToCryptoAddress {
   };
 }
 
-export interface IFeeEstimateRequest {
+export interface IFeeEstimateRequestQueryParams {
   currency: string;
   crypto_address: string;
   network: string;
