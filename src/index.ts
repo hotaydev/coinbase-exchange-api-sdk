@@ -15,11 +15,13 @@ import {
   TravelRulesEndpoint,
   UsersEndpoint,
   WrappedAssetsEndpoint,
-} from "./exchange/endpoints";
-import CoinbaseExchangeApiRequest from "./exchange/request";
+} from "./endpoints";
+import CoinbaseExchangeApiRequest from "./request";
 
 /**
  * Use it like `const cb = new CoinbaseExchangeApi({ key: "", secret: "", ... })`
+ * 
+ * For more information, see https://docs.cloud.coinbase.com/exchange/
  */
 export class CoinbaseExchangeApi {
   private instance = new CoinbaseExchangeApiRequest();
@@ -100,14 +102,5 @@ export class CoinbaseExchangeApi {
 
   get wrappedAssets(): WrappedAssetsEndpoint {
     return new WrappedAssetsEndpoint(this.instance);
-  }
-}
-
-/**
- * Use it like `const cb = new CoinbaseAdvancedApi({ key: "", secret: "", ... })`
- */
-export class CoinbaseAdvancedApi {
-  constructor() {
-    throw Error("Not implemented yet");
   }
 }
