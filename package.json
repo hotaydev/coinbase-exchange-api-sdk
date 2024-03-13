@@ -34,6 +34,7 @@
     "url": "https://github.com/hotaydev/coinbase-exchange-api-sdk/issues"
   },
   "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
     "@types/isomorphic-fetch": "^0.0.39",
     "@types/node": "^20.11.25",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
