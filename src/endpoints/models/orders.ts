@@ -46,7 +46,14 @@ export interface IOrder {
   fill_fees: string;
   filled_size: string;
   executed_value: string;
-  status: "open" | "pending" | "rejected" | "done" | "active" | "received" | "all";
+  status:
+    | "open"
+    | "pending"
+    | "rejected"
+    | "done"
+    | "active"
+    | "received"
+    | "all";
   settled: boolean;
   stop: "loss" | "entry";
   stop_price: string;
@@ -80,7 +87,9 @@ export interface ICreateNewOrderRequest {
 
 export interface ICreateNewOrderResponse extends IOrder {}
 
-export interface IGetAllOrdersQueryParams extends IPagination, ICancelSingleOrderQueryParams {
+export interface IGetAllOrdersQueryParams
+  extends IPagination,
+    ICancelSingleOrderQueryParams {
   profile_id?: string;
   product_id?: string;
   sortedBy?: "created_at" | "price" | "size" | "order_id" | "side" | "type";

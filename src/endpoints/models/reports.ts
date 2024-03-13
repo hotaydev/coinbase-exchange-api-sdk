@@ -49,11 +49,25 @@ export interface IReport {
 export interface IReportQueryParams extends IPagination {
   profile_id: string;
   ignore_expired: boolean;
-  type: "account" | "balance" | "fills" | "otc-fills" | "rfq-fills" | "tax-invoice" | "1099k-transaction-history";
+  type:
+    | "account"
+    | "balance"
+    | "fills"
+    | "otc-fills"
+    | "rfq-fills"
+    | "tax-invoice"
+    | "1099k-transaction-history";
 }
 
 export interface IReportCreate {
-  type: "account" | "balance" | "fills" | "otc-fills" | "rfq-fills" | "tax-invoice" | "1099k-transaction-history";
+  type:
+    | "account"
+    | "balance"
+    | "fills"
+    | "otc-fills"
+    | "rfq-fills"
+    | "tax-invoice"
+    | "1099k-transaction-history";
   year: string;
   format: "pdf" | "csv";
   email: string;

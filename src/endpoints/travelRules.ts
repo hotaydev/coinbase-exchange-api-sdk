@@ -1,4 +1,8 @@
-import { ITravelRule, ITravelRuleCreate, ITravelRulesQueryParams } from "./models/travelRules";
+import {
+  ITravelRule,
+  ITravelRuleCreate,
+  ITravelRulesQueryParams,
+} from "./models/travelRules";
 import CoinbaseExchangeApiRequest from "../request";
 import { Endpoints } from "./_allEndpoints";
 
@@ -13,11 +17,13 @@ export default class TravelRulesEndpoint {
    * Get all travel rule information ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_gettravelrules))
    * @returns Promise<ITravelRule[]>
    */
-  public async getAllTravelRules(query: ITravelRulesQueryParams): Promise<ITravelRule[]> {
-    return await this.instance.request({
+  public async getAllTravelRules(
+    query: ITravelRulesQueryParams,
+  ): Promise<ITravelRule[]> {
+    return (await this.instance.request({
       path: Endpoints.getTravelRules,
       query: query,
-    }) as ITravelRule[];
+    })) as ITravelRule[];
   }
 
   /**
@@ -25,11 +31,11 @@ export default class TravelRulesEndpoint {
    * @returns Promise<ITravelRule>
    */
   public async createTravelRule(body: ITravelRuleCreate): Promise<ITravelRule> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.createTravelRule,
       method: "POST",
       body: body,
-    }) as ITravelRule;
+    })) as ITravelRule;
   }
 
   /**

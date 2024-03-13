@@ -1,4 +1,8 @@
-import { IUser, IUserUpdateSettlementRequest, IUserUpdateSettlementResponse } from "./models/users";
+import {
+  IUser,
+  IUserUpdateSettlementRequest,
+  IUserUpdateSettlementResponse,
+} from "./models/users";
 import CoinbaseExchangeApiRequest from "../request";
 import { Endpoints } from "./_allEndpoints";
 
@@ -14,20 +18,23 @@ export default class UsersEndpoint {
    * @returns Promise<IUser>
    */
   public async getUserExchangeLimits(userId: string): Promise<IUser> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getUserLimits.replace(":id", userId),
-    }) as IUser;
+    })) as IUser;
   }
 
   /**
    * Update settlement preference ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_postuserlevelsettlementpreferences))
    * @returns Promise<IUserUpdateSettlementResponse>
    */
-  public async updateUserSettlementPreference(userId: string, body: IUserUpdateSettlementRequest): Promise<IUserUpdateSettlementResponse> {
-    return await this.instance.request({
+  public async updateUserSettlementPreference(
+    userId: string,
+    body: IUserUpdateSettlementRequest,
+  ): Promise<IUserUpdateSettlementResponse> {
+    return (await this.instance.request({
       path: Endpoints.updateUserSettlementPreferences.replace(":id", userId),
       method: "POST",
       body: body,
-    }) as IUserUpdateSettlementResponse;
+    })) as IUserUpdateSettlementResponse;
   }
 }

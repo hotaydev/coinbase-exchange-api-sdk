@@ -87,5 +87,5 @@ enum ITransferTypes {
   "deposit",
   "withdraw",
   "internal_deposit",
-  "internal_withdraw"
+  "internal_withdraw",
 }

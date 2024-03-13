@@ -5,7 +5,8 @@ export interface IDepositFromCoinbaseAccount extends _IDepositRequest {
   coinbase_account_id: string;
 }
 
-export interface IWithdrawToCoinbaseAccount extends IDepositFromCoinbaseAccount {}
+export interface IWithdrawToCoinbaseAccount
+  extends IDepositFromCoinbaseAccount {}
 
 export interface IWithdrawToPaymentMethod extends IDepositFromPaymentMethod {}
 

@@ -23,7 +23,11 @@ export interface ILoanInterestSummaries {
   currency: string;
   current_owed: string;
   last_payment_date: string;
-  payment_status: "STATUS_UNSPECIFIED" | "PAID_PAYMENT" | "PAYABLE_PAYMENT" | "OVERDUE_PAYMENT";
+  payment_status:
+    | "STATUS_UNSPECIFIED"
+    | "PAID_PAYMENT"
+    | "PAYABLE_PAYMENT"
+    | "OVERDUE_PAYMENT";
   last_payment_amount: string;
   prior_period_overdue: string;
   current_interest_due_date: string;

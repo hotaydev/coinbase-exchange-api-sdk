@@ -16,7 +16,8 @@ export interface IUser {
   limit_currency: string;
 }
 
-export interface IUserUpdateSettlementRequest extends IUserUpdateSettlementResponse {
+export interface IUserUpdateSettlementRequest
+  extends IUserUpdateSettlementResponse {
   user_id: string;
 }
 

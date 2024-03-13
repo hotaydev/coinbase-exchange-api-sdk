@@ -20,7 +20,7 @@ import CoinbaseExchangeApiRequest from "./request";
 
 /**
  * Use it like `const cb = new CoinbaseExchangeApi({ key: "", secret: "", ... })`
- * 
+ *
  * For more information, see https://docs.cloud.coinbase.com/exchange/
  */
 export class CoinbaseExchangeApi {
@@ -42,7 +42,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Accounts Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getaccounts)
-   * 
+   *
    * Available methods:
    * - getAllAccounts
    * - getSingleAccount
@@ -56,7 +56,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Address Book Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getaddressbook)
-   * 
+   *
    * Available methods:
    * - getAllAddressBooks
    * - createAddressBook
@@ -68,7 +68,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Coinbase Accounts Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbaseaccounts)
-   * 
+   *
    * Available methods:
    * - getAllCoinbaseWallets
    * - createCryptoAddress
@@ -79,7 +79,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Conversions Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_postconversion)
-   * 
+   *
    * Available methods:
    * - convertCurrency
    * - getConversionFeeRates
@@ -91,7 +91,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Currencies Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcurrencies)
-   * 
+   *
    * Available methods:
    * - getAllKnownCurrencies
    * - getSingleCurrency
@@ -102,7 +102,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Transfers Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_postdepositcoinbaseaccount)
-   * 
+   *
    * Available methods:
    * - getAllPaymentMethods
    * - getAllTransfers
@@ -120,7 +120,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Fees Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getfees)
-   * 
+   *
    * Available methods:
    * - getFees
    */
@@ -130,7 +130,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Orders Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getfills)
-   * 
+   *
    * Available methods:
    * - getAllFills
    * - getAllOrders
@@ -145,7 +145,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Loans Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getloans)
-   * 
+   *
    * Available methods:
    * - getAllLoans
    * - getAllLoanAssets
@@ -162,7 +162,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Coinbase Price Oracle Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbasepriceoracle)
-   * 
+   *
    * Available methods:
    * - getSignedPrices
    */
@@ -172,7 +172,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Products Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getproducts)
-   * 
+   *
    * Available methods:
    * - getAllKnownTradingPairs
    * - getSingleProduct
@@ -188,7 +188,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Profiles Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getprofiles)
-   * 
+   *
    * Available methods:
    * - getProfiles
    * - getProfileById
@@ -203,7 +203,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Reports Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getreports)
-   * 
+   *
    * Available methods:
    * - getAllReports
    * - getSingleReport
@@ -215,7 +215,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Travel Rules Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_gettravelrules)
-   * 
+   *
    * Available methods:
    * - getAllTravelRules
    * - createTravelRule
@@ -227,7 +227,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Users Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getuserexchangelimits)
-   * 
+   *
    * Available methods:
    * - getUserExchangeLimits
    * - updateUserSettlementPreference
@@ -238,7 +238,7 @@ export class CoinbaseExchangeApi {
 
   /**
    * Wrapped Assets Section of [Coinbase Documentation](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getwrappedassets)
-   * 
+   *
    * Available methods:
    * - getAllWrappedAssets
    * - getAllStakeWraps

@@ -1,21 +1,38 @@
 {
   "name": "coinbase-exchange-api-sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.ts",
+  "description": "Coinbase Exchange API abstraction in NodeJS",
+  "main": "dist/src/index.ts",
+  "types": "dist/src/index.d.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "prepublish": "npm run build",
     "lint": "eslint --fix --ext .ts ./src",
     "prettier": "prettier . --write",
     "format": "npm run prettier && npm run lint",
     "postinstall": "git init && git config --local core.hooksPath .hooks/"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "coinbase",
+    "automation",
+    "trade",
+    "API",
+    "SDK"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "author": "TaylorHo <taylor@hotay.dev>",
   "license": "MIT",
+  "homepage": "https://github.com/hotaydev/coinbase-exchange-api-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hotaydev/coinbase-exchange-api-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hotaydev/coinbase-exchange-api-sdk/issues"
+  },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.39",
     "@types/node": "^20.11.25",
@@ -24,7 +41,6 @@
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
-    "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
   },
   "dependencies": {

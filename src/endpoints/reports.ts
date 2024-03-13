@@ -1,4 +1,9 @@
-import { IReport, IReportCreate, IReportCreated, IReportQueryParams } from "./models/reports";
+import {
+  IReport,
+  IReportCreate,
+  IReportCreated,
+  IReportQueryParams,
+} from "./models/reports";
 import CoinbaseExchangeApiRequest from "../request";
 import { Endpoints } from "./_allEndpoints";
 
@@ -14,10 +19,10 @@ export default class ReportsEndpoint {
    * @returns Promise<IReport[]>
    */
   public async getAllReports(query: IReportQueryParams): Promise<IReport[]> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getProfiles,
       query: query,
-    }) as IReport[];
+    })) as IReport[];
   }
 
   /**
@@ -25,9 +30,9 @@ export default class ReportsEndpoint {
    * @returns Promise<IReport>
    */
   public async getSingleReport(reportId: string): Promise<IReport> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getProfileById.replace(":id", reportId),
-    }) as IReport;
+    })) as IReport;
   }
 
   /**
@@ -35,10 +40,10 @@ export default class ReportsEndpoint {
    * @returns Promise<IReportCreated>
    */
   public async createReport(body: IReportCreate): Promise<IReportCreated> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.createReport,
       method: "POST",
       body: body,
-    }) as IReportCreated;
+    })) as IReportCreated;
   }
 }

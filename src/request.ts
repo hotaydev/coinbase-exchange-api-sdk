@@ -22,7 +22,9 @@ export default class CoinbaseExchangeApiRequest {
     body?: object,
   ): string {
     const firstPartOfTheMessage = timestamp + method + path;
-    const message = body ? firstPartOfTheMessage + JSON.stringify(body) : firstPartOfTheMessage;
+    const message = body
+      ? firstPartOfTheMessage + JSON.stringify(body)
+      : firstPartOfTheMessage;
     const key = Buffer.from(this.cb_secret, "base64");
     const hmac = createHmac("sha256", key);
     return hmac.update(message).digest("base64");
@@ -55,7 +57,12 @@ export default class CoinbaseExchangeApiRequest {
     path,
     body,
     query,
-  }: {method?: "GET" | "POST" | "DELETE" | "PUT", path: string, body?: object, query?: object}): Promise<unknown> {
+  }: {
+    method?: "GET" | "POST" | "DELETE" | "PUT";
+    path: string;
+    body?: object;
+    query?: object;
+  }): Promise<unknown> {
     const timestamp = this.getTimestamp();
     const sign = this.getSign(
       timestamp,
@@ -64,18 +71,21 @@ export default class CoinbaseExchangeApiRequest {
       body,
     );
 
-    const response = await fetch(this.api + this.startWithSlash(path) + this.objectToQueryString(query), {
-      method: method,
-      body: body ? JSON.stringify(body) : null,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "CB-ACCESS-KEY": this.cb_key,
-        "CB-ACCESS-SIGN": sign,
-        "CB-ACCESS-TIMESTAMP": timestamp.toString(),
-        "CB-ACCESS-PASSPHRASE": this.cb_passphrase,
+    const response = await fetch(
+      this.api + this.startWithSlash(path) + this.objectToQueryString(query),
+      {
+        method: method,
+        body: body ? JSON.stringify(body) : null,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "CB-ACCESS-KEY": this.cb_key,
+          "CB-ACCESS-SIGN": sign,
+          "CB-ACCESS-TIMESTAMP": timestamp.toString(),
+          "CB-ACCESS-PASSPHRASE": this.cb_passphrase,
+        },
       },
-    });
+    );
 
     const data = await response.json();
     return data;
@@ -84,9 +94,15 @@ export default class CoinbaseExchangeApiRequest {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private objectToQueryString(data: any): string {
     if (data) {
-      return "?" + Object.keys(data)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-        .join("&");
+      return (
+        "?" +
+        Object.keys(data)
+          .map(
+            (key) =>
+              `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
+          )
+          .join("&")
+      );
     }
 
     return "";

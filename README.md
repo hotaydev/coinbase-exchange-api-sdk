@@ -13,8 +13,14 @@ It exposes all this in a simple way, abstracting all the manual work of interact
 Use it like:
 
 ```javascript
-const cb = new CoinbaseExchangeApi({ key: "", secret: "", passphrase: "", environment: "" });
+const cb = new CoinbaseExchangeApi({
+  key: "",
+  secret: "",
+  passphrase: "",
+  environment: "",
+});
 ```
+
 <sub>The environment defaults to <i>"dev"</i>. When it's using <i>"dev"</i>, it refers to the Sandbox environment. Set it to <i>"prod"</i> to use the production API.</sub>
 
 After this, you can use all the endpoints and methods of [the API reference](https://docs.cloud.coinbase.com/exchange/reference).

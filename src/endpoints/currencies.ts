@@ -14,9 +14,9 @@ export default class CurrenciesEndpoint {
    * @returns Promise<ICurrency[]>
    */
   public async getAllKnownCurrencies(): Promise<ICurrency[]> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getCurrencies,
-    }) as ICurrency[];
+    })) as ICurrency[];
   }
 
   /**
@@ -24,8 +24,8 @@ export default class CurrenciesEndpoint {
    * @returns Promise<ICurrency>
    */
   public async getSingleCurrency(currencyId: string): Promise<ICurrency> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getCurrencyById.replace(":id", currencyId),
-    }) as ICurrency;
+    })) as ICurrency;
   }
 }

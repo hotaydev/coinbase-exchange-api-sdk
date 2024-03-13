@@ -14,8 +14,8 @@ export default class FeesEndpoint {
    * @returns Promise<IFee[]>
    */
   public async getFees(): Promise<IFee[]> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getFees,
-    }) as IFee[];
+    })) as IFee[];
   }
 }

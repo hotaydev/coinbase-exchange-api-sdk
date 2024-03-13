@@ -14,8 +14,8 @@ export default class CoinbasePriceOracleEndpoint {
    * @returns Promise<ISignedPrices[]>
    */
   public async getSignedPrices(): Promise<ISignedPrices> {
-    return await this.instance.request({
+    return (await this.instance.request({
       path: Endpoints.getOraclePrices,
-    }) as ISignedPrices;
+    })) as ISignedPrices;
   }
 }

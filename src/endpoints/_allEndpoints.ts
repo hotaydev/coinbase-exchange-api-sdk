@@ -2,7 +2,7 @@
 
 /**
  * Enum with all Coinbase Endpoints.
- * 
+ *
  * - Last reviwed on: March 13, 2024
  */
 export enum Endpoints {
@@ -94,4 +94,3 @@ export enum Endpoints {
   getWrappedAssetById = "/wrapped-assets/:id",
   getWrappedAssetConversionRate = "/wrapped-assets/:id/conversion-rate",
 }
-
