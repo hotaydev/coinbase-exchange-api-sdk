@@ -9,6 +9,10 @@ export default class ReportsEndpoint {
     this.instance = instance;
   }
 
+  /**
+   * Get all reports ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getreports))
+   * @returns Promise<IReport[]>
+   */
   public async getAllReports(query: IReportQueryParams): Promise<IReport[]> {
     return await this.instance.request({
       path: Endpoints.getProfiles,
@@ -16,12 +20,20 @@ export default class ReportsEndpoint {
     }) as IReport[];
   }
 
-  public async getSingleReports(reportId: string): Promise<IReport> {
+  /**
+   * Get a report ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getreport))
+   * @returns Promise<IReport>
+   */
+  public async getSingleReport(reportId: string): Promise<IReport> {
     return await this.instance.request({
       path: Endpoints.getProfileById.replace(":id", reportId),
     }) as IReport;
   }
 
+  /**
+   * Create a report ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_postreports))
+   * @returns Promise<IReportCreated>
+   */
   public async createReport(body: IReportCreate): Promise<IReportCreated> {
     return await this.instance.request({
       path: Endpoints.createReport,

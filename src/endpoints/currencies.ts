@@ -9,15 +9,23 @@ export default class CurrenciesEndpoint {
     this.instance = instance;
   }
 
+  /**
+   * Get all known currencies ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcurrencies))
+   * @returns Promise<ICurrency[]>
+   */
   public async getAllKnownCurrencies(): Promise<ICurrency[]> {
     return await this.instance.request({
       path: Endpoints.getCurrencies,
     }) as ICurrency[];
   }
 
-  public async getSingleCurrency(currencyId: string): Promise<ICurrency[]> {
+  /**
+   * Get a currency ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcurrency))
+   * @returns Promise<ICurrency>
+   */
+  public async getSingleCurrency(currencyId: string): Promise<ICurrency> {
     return await this.instance.request({
       path: Endpoints.getCurrencyById.replace(":id", currencyId),
-    }) as ICurrency[];
+    }) as ICurrency;
   }
 }

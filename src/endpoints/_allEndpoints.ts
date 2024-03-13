@@ -3,7 +3,7 @@
 /**
  * Enum with all Coinbase Endpoints.
  * 
- * - Last reviwed on: March 11, 2024
+ * - Last reviwed on: March 13, 2024
  */
 export enum Endpoints {
   getAccounts = "/accounts",
@@ -47,16 +47,21 @@ export enum Endpoints {
 
   getLoans = "/loans",
   getLoansAssets = "/loans/assets",
+  getLoansInterestSummaries = "/loans/interest",
+  getLoanInterestRateHistory = "/loans/interest/history/:id",
+  getLoanInterestCharges = "/loans/interest/:id",
   getLoansLendingOverview = "/loans/lending-overview",
   getLoanPreview = "/loans/loan-preview",
   createLoan = "/loans/open",
   getLoansOptions = "/loans/options",
-  createLoanRepay = "/loans/repay-principal",
+  createLoanPrincipalRepay = "/loans/repay-principal",
+  createLoanInterestRepay = "/loans/repay-interest",
   getLoanRepayPreview = "/loans/repayment-preview",
 
   getOraclePrices = "/oracle",
 
   getTradingPairs = "/products",
+  getTradingProductVolume = "/products/volume-summary",
   getTradingPair = "/products/:id",
   getProductBook = "/products/:id/book",
   getProductCandles = "/products/:id/candles",

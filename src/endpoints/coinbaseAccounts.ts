@@ -1,4 +1,4 @@
-import { ICoinbaseWallets, IGenerateCryptoAddressRequest } from "./models/coinbaseAccounts";
+import { ICoinbaseWallets, IGenerateCryptoAddressRequest, IGenerateCryptoAddressResponse } from "./models/coinbaseAccounts";
 import CoinbaseExchangeApiRequest from "../request";
 import { Endpoints } from "./_allEndpoints";
 
@@ -9,17 +9,25 @@ export default class CoinbaseAccountsEndpoint {
     this.instance = instance;
   }
 
+  /**
+   * Get all Coinbase wallets ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getcoinbaseaccounts))
+   * @returns Promise<ICoinbaseWallets[]>
+   */
   public async getAllCoinbaseWallets(): Promise<ICoinbaseWallets[]> {
     return await this.instance.request({
       path: Endpoints.getCoinbaseWallets,
     }) as ICoinbaseWallets[];
   }
 
-  public async createCryptoAddress(accountId: string, body: IGenerateCryptoAddressRequest): Promise<ICoinbaseWallets[]> {
+  /**
+   * Generate crypto address ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_postcoinbaseaccountaddresses))
+   * @returns Promise<IGenerateCryptoAddressResponse[]>
+   */
+  public async createCryptoAddress(accountId: string, body: IGenerateCryptoAddressRequest): Promise<IGenerateCryptoAddressResponse> {
     return await this.instance.request({
       path: Endpoints.createCoinbaseWalletAddress.replace(":id", accountId),
       body: body,
       method: "POST"
-    }) as ICoinbaseWallets[];
+    }) as IGenerateCryptoAddressResponse;
   }
 }

@@ -19,6 +19,29 @@ export interface ILoanAssets {
   borrowable_assets: string[];
 }
 
+export interface ILoanInterestSummaries {
+  currency: string;
+  current_owed: string;
+  last_payment_date: string;
+  payment_status: "STATUS_UNSPECIFIED" | "PAID_PAYMENT" | "PAYABLE_PAYMENT" | "OVERDUE_PAYMENT";
+  last_payment_amount: string;
+  prior_period_overdue: string;
+  current_interest_due_date: string;
+}
+
+export interface ILoansInterestRateHistory {
+  interest_rate: string;
+  effective_at: string;
+}
+
+export interface ILoansInterestCharges {
+  date: string;
+  currency: string;
+  principal_amount: string;
+  interest_rate: string;
+  interest_accrued: string;
+}
+
 export interface ILendingOverview {
   overview: _ISingleLoanContent;
   loans: ILoan[];
@@ -57,8 +80,11 @@ export interface ILoanOptions {
   interest_rate: string;
 }
 
-export interface IRepayLoanPrincipalRequest {
+export interface IRepayLoanPrincipalRequest extends IRepayLoanInterestRequest {
   loan_id: string;
+}
+
+export interface IRepayLoanInterestRequest {
   idem: string;
   from_profile_id: string;
   currency: string;
@@ -77,6 +103,26 @@ export interface IRepayLoanPrincipalResponse {
     loan_id: string;
     native_amount: string;
     initial_native_amount: string;
+    status:
+      | "REPAYMENT_UNSET"
+      | "REPAYMENT_PENDING"
+      | "REPAYMENT_COMPLETED"
+      | "REPAYMENT_CANCELLED"
+      | "REPAYMENT_EXPIRED"
+      | "REPAYMENT_COMMITTED"
+      | "REPAYMENT_REJECTED";
+    type:
+      | "REPAYMENT_TYPE_UNSET"
+      | "PRINCIPAL_RETURN"
+      | "PRINCIPAL_RECALL"
+      | "INTEREST_PAYMENT";
+  };
+}
+
+export interface IRepayLoanInterestResponse {
+  repayment: {
+    id: string;
+    native_amount: string;
     status:
       | "REPAYMENT_UNSET"
       | "REPAYMENT_PENDING"

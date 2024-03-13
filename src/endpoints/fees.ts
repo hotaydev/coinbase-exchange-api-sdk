@@ -9,6 +9,10 @@ export default class FeesEndpoint {
     this.instance = instance;
   }
 
+  /**
+   * Get fees ([Docs Reference](https://docs.cloud.coinbase.com/exchange/reference/exchangerestapi_getfees))
+   * @returns Promise<IFee[]>
+   */
   public async getFees(): Promise<IFee[]> {
     return await this.instance.request({
       path: Endpoints.getFees,

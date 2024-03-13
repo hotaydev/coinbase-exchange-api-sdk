@@ -19,6 +19,20 @@ export interface ISingleProduct {
   high_bid_limit_percentage: string;
 }
 
+export interface IProductVolume {
+  id: string;
+  base_currency: string;
+  quote_currency: string;
+  display_name: string;
+  market_types: object[];
+  spot_volume_24hour: string;
+  spot_volume_30day: string;
+  rfq_volume_24hour: string;
+  rfq_volume_30day: string;
+  conversion_volume_24hour: string;
+  conversion_volume_30day: string;
+}
+
 export interface ISingleProductQueryParams {
   type?: string;
 }
