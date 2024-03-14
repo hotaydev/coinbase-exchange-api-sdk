@@ -1,6 +1,12 @@
-# Coinbase Exchange API SDK (unofficial)
+<h1 align="center">Coinbase Exchange API SDK (unofficial)</h1>
+<h4 align="center">Since Coinbase doesn't have an official SDK for Node.js, we created one.</h4>
 
-> Since Coinbase doesn't have an official SDK for Node.js, we created one.
+<div align="center">
+  <a href="https://github.com/hotaydev/coinbase-exchange-api-sdk/issues" alt="GitHub Issues"><img src="https://img.shields.io/github/issues/hotaydev/coinbase-exchange-api-sdk"/></a>
+  <a href="https://github.com/hotaydev/coinbase-exchange-api-sdk/pulls" alt="GitHub pull requests"><img src="https://img.shields.io/github/issues-pr/hotaydev/coinbase-exchange-api-sdk"/></a>
+  <a href="https://www.npmjs.com/package/coinbase-exchange-api-sdk" alt="NPM Downloads"><img src="https://img.shields.io/npm/dt/coinbase-exchange-api-sdk"/></a>
+  <a href="https://www.npmjs.com/package/coinbase-exchange-api-sdk" alt="NPM Version"><img src="https://img.shields.io/npm/v/coinbase-exchange-api-sdk"/></a>
+</div>
 
 ---
 
