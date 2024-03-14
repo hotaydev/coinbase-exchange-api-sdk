@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm pack",
     "lint": "eslint --fix --ext .ts ./src",
     "prettier": "prettier . --write",
     "format": "npm run prettier && npm run lint",
@@ -28,12 +28,13 @@
   "homepage": "https://github.com/hotaydev/coinbase-exchange-api-sdk",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hotaydev/coinbase-exchange-api-sdk.git"
+    "url": "git+https://github.com/hotaydev/coinbase-exchange-api-sdk.git"
   },
   "bugs": {
     "url": "https://github.com/hotaydev/coinbase-exchange-api-sdk/issues"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@types/isomorphic-fetch": "^0.0.39",
     "@types/node": "^20.11.25",
